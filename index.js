@@ -11,7 +11,7 @@ var settings = {
 
 bleno.on('stateChange', function(state){
   if(state === 'poweredOn'){
-    bleno.startAdvertising('AttendanceApp', ['12ab']);
+    bleno.startAdvertising('scoutingDatabaseApp', ['12ab']);
   }else{
     bleno.stopAdvertising();
   }
@@ -31,10 +31,13 @@ bleno.on('advertisingStart', function(error){
               uuid : settings.characteristic_id,
               properties : ['read', 'write'],
               onWriteRequest : function(data, offset, withoutResponse, callback){
-                var attendee = JSON.parse(data.toString());
-                attendee.time_entered = Date.now();
-                attendees.push(attendee);
-                console.log(attendees);
+                // var attendee = JSON.parse(data.toString());
+                var match = JSON.parse(data.toString());
+
+
+                // attendee.time_entered = Date.now();
+                // attendees.push(attendee);
+                console.log(match);
                 callback(this.RESULT_SUCCESS);
               }
             })
