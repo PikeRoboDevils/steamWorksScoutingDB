@@ -17,7 +17,8 @@
   },
   "homepage": "https://github.com/PikeRoboDevils/steamWorksScoutingDB",
   "dependencies": {
-    "sqlite3": "^3.1.8",
-     "bleno": "^0.4.0"
+    "bleno": "^0.4.0",
+    "mongodb": "^2.2.24",
+    "sqlite3": "^3.1.8"
   }
 }
