@@ -50,8 +50,8 @@ bleno.on('advertisingStart', function(error){
                     }
                     console.log('New match inserted');
                     db.close();
-                    // bleno.stopAdvertising();
-                    // bleno.startAdvertising('scoutingDatabaseApp1', ['12ab']);
+                    bleno.stopAdvertising();
+                    bleno.startAdvertising('scoutingDatabaseApp1', ['12ab']);
                   });
                 });
 
