@@ -8,7 +8,7 @@ var assert = require('assert');
 
 // Connection URL
 var url = 'mongodb://localhost:9000/steamworksScouting';
-var collectionName = 'westLafayette'
+var collectionName = 'westLafayette';
 
 var attendees = [];
 var settings = {
@@ -43,7 +43,7 @@ bleno.on('advertisingStart', function(error){
                 MongoClient.connect(url, function(err, db) {
                   var match = JSON.parse(data.toString());
 
-                  var col = db.collection(collectionName);
+                  var col = db.collection('westLafayette');
 
                   col.insertOne(match, function(err, res) {
                     console.log('New match inserted');
