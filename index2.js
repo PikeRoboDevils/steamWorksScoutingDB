@@ -18,7 +18,7 @@ var settings = {
 bleno.on('stateChange', function(state){
   if(state === 'poweredOn'){
     console.log('powered on!');
-    bleno.startAdvertising('scoutingDatabaseApp1', ['12ab']);
+    bleno.startAdvertising('scoutingDatabaseApp2', ['12ab']);
   }else{
     console.log('stopped advertising');
     console.log(state);
