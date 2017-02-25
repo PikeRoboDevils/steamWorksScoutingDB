@@ -20,6 +20,8 @@ bleno.on('stateChange', function(state){
     console.log('powered on!');
     bleno.startAdvertising('scoutingDatabaseApp', ['12ab']);
   }else{
+    console.log('stopped advertising');
+    console.log(state);
     bleno.stopAdvertising();
   }
 });
