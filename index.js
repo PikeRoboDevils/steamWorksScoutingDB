@@ -3,6 +3,13 @@ console.log('App started');
 
 var bleno = require('bleno');
 
+var MongoClient = require('mongodb').MongoClient;
+var assert = require('assert');
+
+// Connection URL
+var url = 'mongodb://localhost:9000/steamworksScouting';
+var collectionName = 'westLafayette'
+
 var attendees = [];
 var settings = {
   service_id: '12ab',
@@ -11,7 +18,8 @@ var settings = {
 
 bleno.on('stateChange', function(state){
   if(state === 'poweredOn'){
-    bleno.startAdvertising('AttendanceApp', ['12ab']);
+    console.log('powered on!');
+    bleno.startAdvertising('scoutingDatabaseApp', ['12ab']);
   }else{
     bleno.stopAdvertising();
   }
@@ -19,6 +27,7 @@ bleno.on('stateChange', function(state){
 
 bleno.on('advertisingStart', function(error){
     if(error){
+      console.log(error);
       // error on advertise start
     }else{
       console.log('started..');
@@ -31,10 +40,17 @@ bleno.on('advertisingStart', function(error){
               uuid : settings.characteristic_id,
               properties : ['read', 'write'],
               onWriteRequest : function(data, offset, withoutResponse, callback){
-                var attendee = JSON.parse(data.toString());
-                attendee.time_entered = Date.now();
-                attendees.push(attendee);
-                console.log(attendees);
+                MongoClient.connect(url, function(err, db) {
+                  var match = JSON.parse(data.toString());
+
+                  var col = db.collection(collectionName);
+
+                  col.insertOne(match, function(err, res) {
+                    console.log('New match inserted');
+                    db.close();
+                  });
+                });
+
                 callback(this.RESULT_SUCCESS);
               }
             })
