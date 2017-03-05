@@ -6,7 +6,7 @@ var assert = require('assert');
 var CronJob = require('cron').CronJob;
 
 // Connection URL
-var url = 'mongodb://localhost:9000/steamworks';
+var url = 'mongodb://127.0.0.1:9000/steamworks';
 
 var attendees = [];
 var settings = {
