@@ -1,0 +1,7 @@
+_id
+totalGears
+averageGears
+autoTotal
+autoAvg
+successfulClimbs
+matches
