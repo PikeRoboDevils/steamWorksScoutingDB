@@ -1,19 +1,44 @@
-
 console.log('App started');
 
 var bleno = require('bleno');
-
 var MongoClient = require('mongodb').MongoClient;
 var assert = require('assert');
+var CronJob = require('cron').CronJob;
 
 // Connection URL
-var url = 'mongodb://localhost:9000/steamworks';
+var url = 'mongodb://127.0.0.1:9000/steamworks';
 
 var attendees = [];
 var settings = {
   service_id: '12ab',
   characteristic_id: '34cd'
 };
+
+var matches = [];
+
+var job = new CronJob({
+  cronTime: '0-59/30 * * * * *',
+  onTick: function() {
+    if(matches.length > 0) {
+      MongoClient.connect(url, function(err, db) {
+        var col = db.collection('wlPlayoffs');
+
+        col.insertMany(matches, function(err, res) {
+          if(err){
+            console.log(err);
+          }
+          console.log(matches.length + ' new matches inserted');
+          matches = [];
+          db.close();
+        });
+      });
+    } else {
+      console.log('No new matches');
+    }
+  },
+  start: true,
+  timeZone:'America/Indianapolis'
+});
 
 bleno.on('stateChange', function(state){
   if(state === 'poweredOn'){
@@ -41,19 +66,8 @@ bleno.on('advertisingStart', function(error){
               uuid : settings.characteristic_id,
               properties : ['read', 'write'],
               onWriteRequest : function(data, offset, withoutResponse, callback){
-                MongoClient.connect(url, function(err, db) {
-                  var match = JSON.parse(data.toString());
-
-                  var col = db.collection('westLafayette');
-
-                  col.insertOne(match, function(err, res) {
-                    if(err){
-                      console.log(err);
-                    }
-                    console.log('New match inserted');
-                    db.close();
-                  });
-                });
+                var match = JSON.parse(data.toString());
+                matches.push(match);
 
                 callback(this.RESULT_SUCCESS);
               }
