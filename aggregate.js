@@ -1,16 +1,16 @@
 use steamworks;
 
-db.wlPlayoffs.aggregate([
+db.pike.aggregate([
     {
         $group:
-            {
-            "_id": "$teamNumber",
-            "totalGears": {"$sum": "$teleScore.gearTotal"},
-            "averageGears": {"$avg": "$teleScore.gearTotal"},
-            "autoTotal": {"$sum": "$autoScore.total"},
-            "autoAvg": {"$avg": "$autoScore.total"},
-            "successfulClimbs": {"$sum": {"$cond": ["$teleScore.climb", 1, 0]}},
-            "matches": {"$sum": 1}
+                {
+                "_id": "$teamNumber",
+                "totalGears": {"$sum": "$teleScore.gearTotal"},
+                "averageGears": {"$avg": "$teleScore.gearTotal"},
+                "autoTotal": {"$sum": "$autoScore.total"},
+                "autoAvg": {"$avg": "$autoScore.total"},
+                "successfulClimbs": {"$sum": {"$cond": ["$teleScore.climb", 1, 0]}},
+                "matches": {"$sum": 1}
             }
     },
     {
