@@ -1,0 +1,12 @@
+_id
+totalGears
+averageGears
+gearPlacement
+autoFuelAverage
+teleFuelAverage
+autoTotal
+autoAvg
+attemptedClimbs
+successfulClimbs
+climbPlacement
+matches
