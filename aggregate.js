@@ -1,6 +1,6 @@
 use steamworks;
 
-db.pike.aggregate([
+db.perry.aggregate([
     {
         $project:
             {

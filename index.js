@@ -21,7 +21,7 @@ var job = new CronJob({
   onTick: function() {
     if(matches.length > 0) {
       MongoClient.connect(url, function(err, db) {
-        var col = db.collection('pike');
+        var col = db.collection('perry');
 
         col.insertMany(matches, function(err, res) {
           if(err){
