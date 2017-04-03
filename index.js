@@ -24,12 +24,17 @@ var job = new CronJob({
         var col = db.collection('pike');
 
         col.insertMany(matches, function(err, res) {
-          if(err){
-            console.log(err);
-          }
-          console.log(matches.length + ' new matches inserted');
-          matches = [];
-          db.close();
+            col.createIndex(
+                {matchNumber: 1, teamNumber: 1}, 
+                {unique: true, background: true},
+                function(err, indexName) {
+                    if(err){
+                        console.log(err);
+                    }
+                    console.log(matches.length + ' new matches inserted');
+                    matches = [];
+                    db.close();
+            });
         });
       });
     } else {
