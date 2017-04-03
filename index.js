@@ -26,7 +26,7 @@ var job = new CronJob({
         col.insertMany(matches, function(err, res) {
             col.createIndex(
                 {matchNumber: 1, teamNumber: 1}, 
-                {unique: true, background: true, dropDups: true},
+                {unique: true, background: true},
                 function(err, indexName) {
                     if(err){
                         console.log(err);
