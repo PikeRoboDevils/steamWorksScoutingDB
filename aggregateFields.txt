@@ -1,6 +1,8 @@
 _id
-totalGears
-averageGears
+totalTeleGears
+averageTeleGears
+autoGearAttempts
+autoGearSucess
 gearPlacement
 autoFuelAverage
 teleFuelAverage
@@ -9,4 +11,6 @@ autoAvg
 attemptedClimbs
 successfulClimbs
 climbPlacement
+defensiveMatches
+offensiveMatches
 matches
