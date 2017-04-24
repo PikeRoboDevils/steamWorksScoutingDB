@@ -35,7 +35,7 @@ db.pike.aggregate([
                 "successfulClimbs": {"$sum": {"$cond": ["$teleScore.climbSuccess", 1, 0]}},
                 "climbPlacement": {"$addToSet": "$teleScore.climbPosition"},
                 "defensiveMatches": {"$sum": {"$cond": [{"$eq": ["$teleScore.playStyle", "DEFENSIVE"]}, 1, 0]}},
-                "offensiveMatches": {"$sum": {"$cond": [{"$eq": ["$teleScore.playStyle", "OFFENSIVE"]}, 1, 0]}}
+                "offensiveMatches": {"$sum": {"$cond": [{"$eq": ["$teleScore.playStyle", "OFFENSIVE"]}, 1, 0]}},
                 "matches": {"$sum": 1}
             }
     },
