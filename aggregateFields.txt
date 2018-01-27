@@ -1,4 +1,5 @@
 _id
+<<<<<<< HEAD
 avgFouls
 vaultPoints
 parking
@@ -13,3 +14,20 @@ climbAttemp
 climbSuccess
 matches
 
+=======
+totalTeleGears
+averageTeleGears
+autoGearAttempts
+autoGearSucess
+gearPlacement
+autoFuelAverage
+teleFuelAverage
+autoTotal
+autoAvg
+attemptedClimbs
+successfulClimbs
+climbPlacement
+defensiveMatches
+offensiveMatches
+matches
+>>>>>>> 44d1d118c7afd2d9266a9a7ad1b98e4a87fcff05
