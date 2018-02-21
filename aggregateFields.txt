@@ -1,15 +1,15 @@
 _id
-fouls
-vaultPoints
-parking
-autoPlaceMent
-LevitatePoints
-playStyle
+teleFoul
+teleVault
+teleParking
+autoPlace
+teleLevi
+telePlay
 teleTotal
 teleCubes
-avgTeleCubes
+teleAvgCubes
 autoTotal
-climbAttemp
-climbSuccess
+attemptedClimbs
+successfulClimbs
 matches
 
