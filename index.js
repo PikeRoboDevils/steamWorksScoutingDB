@@ -21,7 +21,9 @@ var job = new CronJob({
   onTick: function() {
     if(matches.length > 0) {
       MongoClient.connect(url, function(err, db) {
+          console.log(matches);
         var col = db.collection('pike');
+          
 
         col.insertMany(matches, function(err, res) {
             col.createIndex(
