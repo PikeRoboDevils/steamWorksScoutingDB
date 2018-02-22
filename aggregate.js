@@ -41,6 +41,6 @@ db.pike.aggregate([
             }
     },
     {
-        $out: "temp"
+        $out: "pike"
     }
 ]);
