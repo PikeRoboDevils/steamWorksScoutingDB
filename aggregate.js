@@ -15,8 +15,7 @@ db.pike.aggregate([
                 "teleScore.playStyle": 1,
                 "teleScore.climbSuccess": 1,
                 "teleScore.climbAttempt": 1,
-                "autoScore.placement": 1,
-                "autoScore.placememt": 1
+                "autoScore.placement": 1
 
             }
     },
@@ -41,6 +40,6 @@ db.pike.aggregate([
             }
     },
     {
-        $out: "pike"
+        $out: "temp"
     }
 ]);
