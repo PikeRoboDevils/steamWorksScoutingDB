@@ -4,6 +4,7 @@ var bleno = require('bleno');
 var MongoClient = require('mongodb').MongoClient;
 var assert = require('assert');
 var CronJob = require('cron').CronJob;
+var fs = require('fs');
 
 // Connection URL
 var url = 'mongodb://127.0.0.1:9000/steamworks';
@@ -75,7 +76,11 @@ bleno.on('advertisingStart', function(error){
               onWriteRequest : function(data, offset, withoutResponse, callback){
                 var match = JSON.parse(data.toString());
                 matches.push(match);
-
+		fs.appendFile(
+			'/var/log/robo-database.log',
+			JSON.stringify(match),
+			(err)=> err ? console.error(err):true
+		);
                 callback(this.RESULT_SUCCESS);
               }
             })
