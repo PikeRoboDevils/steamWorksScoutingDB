@@ -23,7 +23,7 @@ var job = new CronJob({
     if(matches.length > 0) {
       MongoClient.connect(url, function(err, db) {
           console.log(matches);
-        var col = db.collection('pike');
+        var col = db.collection('mishawaka');
           
 
         col.insertMany(matches, function(err, res) {
@@ -76,11 +76,11 @@ bleno.on('advertisingStart', function(error){
               onWriteRequest : function(data, offset, withoutResponse, callback){
                 var match = JSON.parse(data.toString());
                 matches.push(match);
-		fs.appendFile(
-			'/var/log/robo-database.log',
-			JSON.stringify(match),
-			(err)=> err ? console.error(err):true
-		);
+		        fs.appendFile(
+			      '/var/log/robo-database.log',
+			      JSON.stringify(match),
+			      (err)=> err ? console.error(err):true
+		        );
                 callback(this.RESULT_SUCCESS);
               }
             })
