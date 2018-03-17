@@ -2,6 +2,11 @@ use steamworks;
 
 var result = db.tester.aggregate([
 
+<<<<<<< HEAD
+=======
+var result = db.tester.aggregate([
+
+>>>>>>> abc6c1e794934ab4b6efadb78f6d99433548eeed
     {
         $project:
             {
