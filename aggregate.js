@@ -1,6 +1,7 @@
-use steamworks;
+use mishawaka;
 
-db.tester.aggregate([
+var result = db.tester.aggregate([
+
     {
         $project:
             {
@@ -45,8 +46,8 @@ db.tester.aggregate([
                 "successfulClimbs": {"$sum": {"$cond": ["$teleScore.climbSuccess", 1, 0]}},
                 "matches": {"$sum": 1}
             }
-    },
-    {
-        $out: "temp"
     }
+
 ]);
+
+db.temp.insert(result.toArray());
