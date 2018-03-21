@@ -1,6 +1,6 @@
 use mishawaka;
 
-var result = db.tester.aggregate([
+var result = db.Plainfield.aggregate([
 
     {
         $project:
@@ -29,19 +29,17 @@ var result = db.tester.aggregate([
             {
                 "_id": "$teamNumber",
                 "avgAutoCubes": {"$avg": "$autoScore.cubes"},
-                "fouls": {"$sum": "$teleScore.foul"},
-                "vaultPoints": {"$sum": "$teleScore.vaultPoints"},
                 "avgAutoRun": {"$avg": "$autoScore.autoRun"},
-                "breakdowns": {"$sum": "$teleScore.breakdown"},
-                //"teleParking": {"$sum": "$teleScore.parking"},
                 "autoPlacement": {"$sum": "$autoScore.placement"}, 
+                "avgTeleCubes": {"$avg": "teleScore.cubes"},  
+                "vaultPoints": {"$sum": "$teleScore.vaultPoints"},
+                //"fouls": {"$sum": "$teleScore.foul"},
+                "breakdowns": {"$sum": "$teleScore.breakdown"},
+              
                 "levitate": {"$sum": "$teleScore.levitation"},
                 "playStyle": {"$sum": "$teleScore.playStyle"},
-                //"teleTotal": {"$sum": "$teleScore.total"},
-                //"teleCubes": {"$sum": "$teleScore.cubes"},
-                "avgAutoCubes": {"$avg": "$autoScore.cubes"},
-                "avgTeleCubes": {"$avg": "teleScore.cubes"},  
-                //"autoTotal": {"$sum": "$autoScore.total"},
+                
+               // "avgTeleCubes": {"$avg": "teleScore.cubes"},  
                 "attemptedClimbs": {"$sum": {"$cond": ["$teleScore.climbAttempt", 1, 0]}},
                 "successfulClimbs": {"$sum": {"$cond": ["$teleScore.climbSuccess", 1, 0]}},
                 "matches": {"$sum": 1}
