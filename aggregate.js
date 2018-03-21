@@ -48,4 +48,4 @@ var result = db.Plainfield.aggregate([
 
 ]);
 
-db.temp.insert(result.toArray());
+db.temp.insert(result.result);
