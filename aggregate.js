@@ -34,6 +34,7 @@ var result = db.Plainfield.aggregate([
                 "avgTeleCubes": {"$avg": "teleScore.cubes"},  
                 "vaultPoints": {"$sum": "$teleScore.vaultPoints"},
                 "fouls": {$addToSet: "$teleScore.fouls"},
+ 
                 "breakdowns": {"$sum": "$teleScore.breakdown"},
               
                 "levitate": {"$sum": "$teleScore.levitation"},
