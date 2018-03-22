@@ -33,13 +33,13 @@ var result = db.Plainfield.aggregate([
                 "autoPlacement": {"$sum": "$autoScore.placement"}, 
                 "avgTeleCubes": {"$avg": "teleScore.cubes"},  
                 "vaultPoints": {"$sum": "$teleScore.vaultPoints"},
-                //"fouls": {"$sum": "$teleScore.foul"},
+                "fouls": {"$sum": "$teleScore.foul"},
                 "breakdowns": {"$sum": "$teleScore.breakdown"},
               
                 "levitate": {"$sum": "$teleScore.levitation"},
-                "playStyle": {"$sum": "$teleScore.playStyle"},
+                "playStyle": {"$addToSet": "$teleScore.playStyle"},
                 
-               // "avgTeleCubes": {"$avg": "teleScore.cubes"},  
+               
                 "attemptedClimbs": {"$sum": {"$cond": ["$teleScore.climbAttempt", 1, 0]}},
                 "successfulClimbs": {"$sum": {"$cond": ["$teleScore.climbSuccess", 1, 0]}},
                 "matches": {"$sum": 1}

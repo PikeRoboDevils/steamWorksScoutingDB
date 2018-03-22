@@ -6,5 +6,6 @@ avgTeleCubes
 vaultPoints
 levitate
 playStyle
+fouls
 attemptedClimbs
 successfulClimbs
