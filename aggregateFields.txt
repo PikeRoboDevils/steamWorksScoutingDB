@@ -3,9 +3,11 @@ avgAutoRun
 avgAutoCubes
 autoPlacement
 avgTeleCubes
-vaultPoints
+avgVaultPoints
+avgExchangePoints
 levitate
 playStyle
+breakdowns
 fouls
 attemptedClimbs
 successfulClimbs
