@@ -1,8 +1,10 @@
 _id
 avgAutoRun
-avgAutoCubes
 autoPlacement
-avgTeleCubes
+avgAutoScaleCubes
+avgAutoSwitchCubes
+avgTeleScaleCubes
+avgTeleSwitchCubes
 avgVaultPoints
 avgExchangePoints
 levitate
