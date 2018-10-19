@@ -23,7 +23,7 @@ var job = new CronJob({
     if(matches.length > 0) {
       MongoClient.connect(url, function(err, db) {
           console.log(matches);
-        var col = db.collection('Plainfield');
+        var col = db.collection('Cage2018');
           
 
         col.insertMany(matches, function(err, res) {

@@ -1,6 +1,6 @@
 use steamworks;
 
-var result = db.Plainfield.aggregate([
+var result = db.Cage2018.aggregate([
 
     {
         $project:
