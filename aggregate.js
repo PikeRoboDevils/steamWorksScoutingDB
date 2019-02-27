@@ -1,6 +1,6 @@
 use steamworks;
 
-var result = db.Cage2018.aggregate([
+var result = db.DeepSpace2019.aggregate([
 
     {
         $project:
