@@ -80,8 +80,6 @@ var result = db.Mishawaka19.aggregate([
                 "rocketLevelReach": {"$addToSet": "$teleScore.rocketLevel"},
                 "climbLevel": {"$addToSet": "$teleScore.climbLevel"},
 
-                "attemptedClimbs": {"$sum": {"$cond": ["$teleScore.climbAttempt", 1, 0]}},
-                "successfulClimbs": {"$sum": {"$cond": ["$teleScore.climbSuccess", 1, 0]}},
                 "matches": {"$sum": 1}
             }
     }
