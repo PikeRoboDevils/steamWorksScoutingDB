@@ -14,7 +14,6 @@ avgAutoStationHatch
 avgAutoStationCargo
 avgAutoHatchDropped
 avgAutoCargoDropped
-
 avgTeleRocketHatchOne
 avgTeleRocketHatchTwo
 avgTeleRocketHatchThree
