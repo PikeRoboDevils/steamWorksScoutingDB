@@ -1,3 +1,3 @@
 use steamworks;
 
-db.temp.drop();
+db.Mishawaka19.drop();
