@@ -17,7 +17,7 @@
   },
   "homepage": "https://github.com/PikeRoboDevils/steamWorksScoutingDB",
   "dependencies": {
-    "bleno": "^0.4.2",
+    "bleno": "^0.4.0",
     "cron": "^1.2.1",
     "mongodb": "^2.2.24"
   }
