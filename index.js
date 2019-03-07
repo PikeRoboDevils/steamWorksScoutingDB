@@ -74,8 +74,8 @@ bleno.on('advertisingStart', function(error){
               uuid : settings.characteristic_id,
               properties : ['read', 'write'],
               onWriteRequest : function(data, offset, withoutResponse, callback){
-                var match = data;
-                matches.push(data);
+                var match = (data.toString());
+                matches.push(match);
 		        fs.appendFile(
 			      '/var/log/robo-database.log',
 			      JSON.stringify(match),
