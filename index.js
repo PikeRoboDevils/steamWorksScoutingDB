@@ -78,7 +78,7 @@ bleno.on('advertisingStart', function(error){
                 matches.push(match);
 		        fs.appendFile(
 			      '/var/log/robo-database.log',
-			      JSON.stringify(match),
+			      //JSON.stringify(match),
 			      (err)=> err ? console.error(err):true
 		        );
                 callback(this.RESULT_SUCCESS);
